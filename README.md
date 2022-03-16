@@ -1,13 +1,13 @@
 Sukurti sistemą, kuri leistų jungtis į grupes ir dalintis sąskaitomis.
 
 DB:
-users (id, full_name, email, password, reg_timestamp);
-groups (id, name);
-bills (id, group_id, amount, description);
-accounts (id, group_id, user_id) <- ši lentelė skirta žinoti kokioms grupėms priklauso kiekvienas vartotojas.
+++users (id, full_name, email, password, reg_timestamp);
+++groups (id, name);
+++bills (id, group_id, amount, description);
+++accounts (id, group_id, user_id) <- ši lentelė skirta žinoti kokioms grupėms priklauso kiekvienas vartotojas.
 
 Back-end:
-Auth: Register/Login su POST.
+++Auth: Register/Login su POST.
 POST: /accounts/ - vartotojas paduoda account ID ir savo token. Į accounts lentelę įsirašo duomenys.
 GET: /accounts/ - paduoda visas vartotojo grupes (JOIN su groups). ID pasiima iš token.
 GET: /bills/:id - paduoda vartotojui visas sąskaitas tos grupės.

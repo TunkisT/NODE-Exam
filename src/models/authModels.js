@@ -4,8 +4,7 @@ const dbConfig = require('../dbConfig');
 async function addUserToDb(full_name, email, passHash) {
   try {
     const connection = await mysql.createConnection(dbConfig);
-    const sql =
-      'INSERT INTO users (full_name, email , password) VALUES (?, ?, ?)';
+    const sql = 'INSERT INTO users (full_name, email , password) VALUES (?, ?, ?)';
 
     const { result } = await connection.execute(sql, [
       full_name,
