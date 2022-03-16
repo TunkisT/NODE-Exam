@@ -13,7 +13,7 @@ async function loginUser(loginData) {
 
   if (respInJs.success === false) {
     errorDiv.innerHTML = '';
-    respInJs.error.map((err) => {
+    respInJs.error.forEach((err) => {
       console.log(err.message);
       errorDiv.innerHTML += `<h5>${err.message}</h5>`;
     });
@@ -22,7 +22,7 @@ async function loginUser(loginData) {
   if (respInJs.success === true) {
     localStorage.setItem('login_token', respInJs.data);
     alert('YOU LOGGED IN');
-    window.location.replace(`groups.html`);
+    window.location.replace('groups.html');
   }
 }
 

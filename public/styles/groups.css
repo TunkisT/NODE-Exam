@@ -1,0 +1,27 @@
+.cards{
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    background-color: rgb(247, 243, 243);
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 28%;
+    text-align: center;
+    border-radius: 1em;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2{
+    text-align: center;
+}
+.add-form{
+    width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+}

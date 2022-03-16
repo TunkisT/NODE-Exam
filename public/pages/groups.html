@@ -7,24 +7,21 @@
     <title>Your groups</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"></head>
     <script src="../scripts/groups.js" defer></script>
-    <style>
-        .cards{
-            background-color: rgb(247, 243, 243);
-            padding: 1em;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .card{
-            background-color: rgb(226, 218, 218);
-            margin: 0.5em;
-            padding: 0.5em;
-            width: 28%;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/groups.css">
 </head>
 <body>
-    <h1>Your groups</h1>
+    <div class="main-div">
+        <img class="logo" src="../images/logo.jpg" >
+    </div>
+    <h2>Select your group</h2>
     <div class="cards"></div>
+    <div class="add-form">
+        <h3>Add group</h3>
+        <form id="add-group">
+            <label for="group">Group ID:</label>
+            <input type="text" name="group" placeholder="group id">
+            <button>Add</button>
+        </form>
+    </div>
 </body>
 </html>
