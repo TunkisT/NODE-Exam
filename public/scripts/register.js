@@ -1,17 +1,6 @@
 const registerForm = document.forms.register;
 const errorDiv = document.querySelector('.errors');
 
-registerForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const registrationData = {
-    full_name: event.target.elements.fullName.value,
-    email: event.target.elements.email.value,
-    password: event.target.elements.password.value,
-  };
-  console.log(registrationData);
-  registerUser(registrationData);
-});
-
 async function registerUser(registrationData) {
   const resp = await fetch('http://localhost:3000/register', {
     method: 'POST',
@@ -24,7 +13,7 @@ async function registerUser(registrationData) {
 
   if (respInJs.success === false) {
     errorDiv.innerHTML = '';
-    respInJs.error.map((err) => {
+    respInJs.error.forEach((err) => {
       console.log(err.message);
       errorDiv.innerHTML += `<h5>${err.message}</h5>`;
     });
@@ -35,3 +24,23 @@ async function registerUser(registrationData) {
     window.location.replace(`index.html?email=${registrationData.email}`);
   }
 }
+
+registerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const pass1 = event.target.elements.password.value;
+  const pass2 = event.target.elements.password2.value;
+  console.log(pass1, pass2);
+  if (pass1 !== pass2) {
+    errorDiv.innerHTML = 'Password dont match';
+    return;
+  }
+  errorDiv.innerHTML = '';
+  const registrationData = {
+    full_name: event.target.elements.fullName.value,
+    email: event.target.elements.email.value,
+    password: pass2,
+  };
+
+  console.log(registrationData);
+  registerUser(registrationData);
+});

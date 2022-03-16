@@ -9,13 +9,13 @@ DB:
 Back-end:
 ++Auth: Register/Login su POST.
 POST: /accounts/ - vartotojas paduoda account ID ir savo token. Į accounts lentelę įsirašo duomenys.
-GET: /accounts/ - paduoda visas vartotojo grupes (JOIN su groups). ID pasiima iš token.
+++GET: /accounts/ - paduoda visas vartotojo grupes (JOIN su groups). ID pasiima iš token.
 GET: /bills/:id - paduoda vartotojui visas sąskaitas tos grupės.
 POST /bills/ - įrašo naują sąskaitą specifinei grupei (front'as paduoda: group_id, amount, description)
 
 Front-end:
-Register: vartotojas įrašo vardą, emailą ir slaptažodį du kartus (jei nesutampa - front'as nepraleidžia).
-Login: vartotojas įrašo emailą, slaptažodį; gauna token; nukreipia į groups pasirinkimą.
+++Register: vartotojas įrašo vardą, emailą ir slaptažodį du kartus (jei nesutampa - front'as nepraleidžia).
+++Login: vartotojas įrašo emailą, slaptažodį; gauna token; nukreipia į groups pasirinkimą.
 Groups: vartotojas mato visas savo grupes (pagal accounts lentelę iš DB). Paspaudus - nuveda į tos grupės bills. Apačioje forma pridėti grupę prie paskyros (t.y. į accounts lentelę).
 Bills: mato sąskaitas specifinės grupės ir gali pridėti naujas.
 Užduoties įkėlimo instrukcijos
