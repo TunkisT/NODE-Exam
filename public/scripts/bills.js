@@ -1,7 +1,7 @@
 const cardsDiv = document.querySelector('.cards');
 const tableDiv = document.querySelector('.table-div');
 const token = localStorage.getItem('login_token');
-const addGroupForm = document.forms.group;
+const addBillForm = document.forms.bill;
 
 const query = window.location.search;
 const groupFromQuery = query.split('=')[1];
@@ -54,14 +54,14 @@ function allowShowCards() {
 
 allowShowCards();
 
-async function addGroup(groupData) {
-  const resp = await fetch('http://localhost:3000/accounts', {
+async function addBill(billData) {
+  const resp = await fetch('http://localhost:3000/bills', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(groupData),
+    body: JSON.stringify(billData),
   });
 
   const respInJs = await resp.json();
@@ -70,15 +70,17 @@ async function addGroup(groupData) {
     alert('Something went wrong');
     return;
   }
-  alert('Group added!');
+  alert('Bill added!');
   window.location.reload();
 }
 
-addGroupForm.addEventListener('submit', (event) => {
+addBillForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const groupData = {
-    group_id: event.target.elements.group.value,
+  const billData = {
+    group_id: groupFromQuery,
+    amount: event.target.elements.amount.value,
+    description: event.target.elements.description.value,
   };
-  console.log('groupData ===', groupData);
-  addGroup(groupData);
+  console.log('billData ===', billData);
+  addBill(billData);
 });

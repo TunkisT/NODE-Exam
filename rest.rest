@@ -25,4 +25,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxN
 GET http://localhost:3000/accounts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlhdCI6MTY0NzQzMDA5NiwiZXhwIjoxNjQ3NTE2NDk2fQ.HboJbOp3lgHhO-NYXXupMIYkjH7bJhv9aLEe6ZBzLpI
 ###
-GET http://localhost:3000/bills/2
+POST http://localhost:3000/bills/
+Content-Type: application/json
+
+{
+    "group_id": "3",
+    "amount": "250",
+    "description": "For fishing"
+}
