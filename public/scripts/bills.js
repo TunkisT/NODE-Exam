@@ -1,9 +1,13 @@
 const cardsDiv = document.querySelector('.cards');
+const tableDiv = document.querySelector('.table-div');
 const token = localStorage.getItem('login_token');
 const addGroupForm = document.forms.group;
 
-async function makeCards() {
-  await fetch('http://localhost:3000/accounts', {
+const query = window.location.search;
+const groupFromQuery = query.split('=')[1];
+
+async function makeTable() {
+  await fetch(`http://localhost:3000/bills/${groupFromQuery}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -16,18 +20,26 @@ async function makeCards() {
         return;
       }
       cardsDiv.innerHTML = '';
+
+      const tbl = document.createElement('table');
+      tableDiv.append(tbl);
+      const tblBody = document.createElement('tbody');
+      tbl.append(tblBody);
+      const mainRow = document.createElement('tr');
+      tblBody.append(mainRow);
+      mainRow.innerHTML = `
+      <th>ID</th>
+      <th>Description</th>
+      <th>Amount</th>`;
+
       cards.data.forEach((card) => {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
-        cardsDiv.append(cardDiv);
-        cardDiv.innerHTML = `
-        <h2>ID: ${card.group_id}</h2>
-        <p>${card.name}</p>
+        const tableRow = document.createElement('tr');
+        tableRow.innerHTML = `
+        <td>${card.bill_id}</td>
+        <td>${card.description}</td>
+        <td>${card.amount}</td>
         `;
-        cardDiv.addEventListener('click', (event) => {
-          event.preventDefault();
-          window.location.replace(`bills.html?group=${card.group_id}`);
-        });
+        tblBody.append(tableRow);
       });
     });
 }
@@ -37,7 +49,7 @@ function allowShowCards() {
     cardsDiv.innerHTML = 'PLEASE LOGIN';
     throw new Error('Please login');
   }
-  makeCards();
+  makeTable();
 }
 
 allowShowCards();

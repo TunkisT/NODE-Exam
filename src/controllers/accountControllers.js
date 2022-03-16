@@ -16,9 +16,9 @@ async function getAccounts(req, res) {
 }
 
 async function writeAccount(req, res) {
-  console.log('req.userId ===', req.userId);
+  console.log('req.group_id ===', req.body.group_id);
 
-  const accountObj = await writeAccountToDb(1, req.userId);
+  const accountObj = await writeAccountToDb(req.body.group_id, req.userId);
   if (accountObj === false) {
     failResponse(res);
     return;

@@ -16,7 +16,7 @@ POST /bills/ - įrašo naują sąskaitą specifinei grupei (front'as paduoda: gr
 Front-end:
 ++Register: vartotojas įrašo vardą, emailą ir slaptažodį du kartus (jei nesutampa - front'as nepraleidžia).
 ++Login: vartotojas įrašo emailą, slaptažodį; gauna token; nukreipia į groups pasirinkimą.
-Groups: vartotojas mato visas savo grupes (pagal accounts lentelę iš DB). Paspaudus - nuveda į tos grupės bills. Apačioje forma pridėti grupę prie paskyros (t.y. į accounts lentelę).
+++Groups: vartotojas mato visas savo grupes (pagal accounts lentelę iš DB). Paspaudus - nuveda į tos grupės bills. Apačioje forma pridėti grupę prie paskyros (t.y. į accounts lentelę).
 Bills: mato sąskaitas specifinės grupės ir gali pridėti naujas.
 Užduoties įkėlimo instrukcijos
 
