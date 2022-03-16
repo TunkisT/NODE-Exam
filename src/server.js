@@ -1,9 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const authRoutes = require('./routes/authRoutes');
 
-const PORT = 3000;
+const PORT = process.env.SERVER_PORT || 3000;
 
 const app = express();
 
@@ -11,10 +10,8 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
-app.use('/', authRoutes);
+const authRoutes = require('./routes/authRoutes');
 
-app.get('/test', (req, res) => {
-  res.json('Express works');
-});
+app.use('/', authRoutes);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
