@@ -12,8 +12,10 @@ app.use(express.json());
 
 const authRoutes = require('./routes/authRoutes');
 const accountRoutes = require('./routes/accountRoutes');
+const billsRoutes = require('./routes/billsRoutes');
 
 app.use('/', authRoutes);
 app.use('/', accountRoutes);
+app.use('/', billsRoutes);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

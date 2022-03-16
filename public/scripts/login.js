@@ -22,7 +22,7 @@ async function loginUser(loginData) {
   if (respInJs.success === true) {
     localStorage.setItem('login_token', respInJs.data);
     alert('YOU LOGGED IN');
-    // window.location.replace(`index.html`);
+    window.location.replace(`groups.html`);
   }
 }
 

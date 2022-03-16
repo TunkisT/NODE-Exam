@@ -8,9 +8,9 @@ DB:
 
 Back-end:
 ++Auth: Register/Login su POST.
-POST: /accounts/ - vartotojas paduoda account ID ir savo token. Į accounts lentelę įsirašo duomenys.
+++POST: /accounts/ - vartotojas paduoda account ID ir savo token. Į accounts lentelę įsirašo duomenys.
 ++GET: /accounts/ - paduoda visas vartotojo grupes (JOIN su groups). ID pasiima iš token.
-GET: /bills/:id - paduoda vartotojui visas sąskaitas tos grupės.
+++GET: /bills/:id - paduoda vartotojui visas sąskaitas tos grupės.
 POST /bills/ - įrašo naują sąskaitą specifinei grupei (front'as paduoda: group_id, amount, description)
 
 Front-end:

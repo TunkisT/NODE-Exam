@@ -20,6 +20,21 @@ async function getAccountsFromDb(id) {
   }
 }
 
+async function writeAccountToDb(group_id, user_id) {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const sql = 'INSERT INTO accounts (group_id, user_id) VALUES (?, ?)';
+
+    const [result] = await connection.execute(sql, [group_id, user_id]);
+    await connection.close();
+    return result;
+  } catch (error) {
+    console.log('writeAccountToDb ===', error);
+    return false;
+  }
+}
+
 module.exports = {
   getAccountsFromDb,
+  writeAccountToDb,
 };

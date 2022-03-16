@@ -7,18 +7,23 @@
     <title>Registration</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"></head>
     <script src="../scripts/register.js" defer></script>
+    <link rel="stylesheet" href="../styles/login.css">
+
 </head>
 <body>
-    <h1>Create your account</h1>
-    <form id="register">
-        <input type="text" name="fullName" placeholder="name surname">
-        <input type="email" name="email" placeholder="email">
-        <input type="text" name="password" placeholder="password">
-        <input type="text" name="password2" placeholder="repeat password">
-        <button>Register</button>
+    <div class="main-div">
+        <img class="logo" src="../images/logo.jpg" >
+        <h1>Create your account</h1>
+        <form id="register">
+            <input type="text" name="fullName" placeholder="name surname">
+            <input type="email" name="email" placeholder="email">
+            <input type="text" name="password" placeholder="password">
+            <input type="text" name="password2" placeholder="repeat password">
+            <button>Register</button>
+            <h4>Or perhaps, just <a href="index.html">login?</a></h4>
 
-    </form>
-    <div class="errors"></div>
-    
+        </form>
+        <div class="errors"></div>
+    </div>
 </body>
 </html>

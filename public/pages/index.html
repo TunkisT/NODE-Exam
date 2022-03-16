@@ -7,15 +7,22 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <script src="../scripts/login.js" defer></script>
+    <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="login">
-        <input type="email" name="email" placeholder="email">
-        <input type="text" name="password" placeholder="password">
-        <button>Login</button>
-        <h4>Dont have account? <a href="register.html">Register</a></h4>
-    </form>
-    <div class="errors"></div>
+    <div class="main-div">
+        <img class="logo" src="../images/logo.jpg" >
+        
+        <h1>Login</h1>
+        <form id="login">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="email">
+            <label for="password">Password</label>
+            <input type="text" name="password" placeholder="password">
+            <button>Login</button>
+            <h4>Don't have account? <a href="register.html">Register</a></h4>
+        </form>
+        <div class="errors"></div>
+    </div>
 </body>
 </html>
