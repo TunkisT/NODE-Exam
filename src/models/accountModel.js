@@ -11,11 +11,10 @@ async function getAccountsFromDb(id) {
     ON groups.group_id = accounts.group_id
     WHERE accounts.user_id = ?;`;
 
-    const [result] = await connection.query(sql, [id]);
+    const [result] = await connection.execute(sql, [id]);
     await connection.close();
     return result;
   } catch (error) {
-    console.log('getGroupsFromDb ===', error);
     return false;
   }
 }
@@ -29,7 +28,6 @@ async function writeAccountToDb(group_id, user_id) {
     await connection.close();
     return result;
   } catch (error) {
-    console.log('writeAccountToDb ===', error);
     return false;
   }
 }

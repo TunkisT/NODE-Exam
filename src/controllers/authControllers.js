@@ -4,10 +4,7 @@ const { hashPass, verifyHash, generateJwtToken } = require('../utils/helpers');
 
 async function authController(req, res) {
   const { full_name, email, password } = req.body;
-  console.log('req.body ===', req.body);
-
   const hashedPassword = hashPass(password);
-
   const insertUser = await addUserToDb(full_name, email, hashedPassword);
   if (insertUser === false) {
     failResponse(res);
@@ -25,15 +22,11 @@ async function loginController(req, res) {
   if (!findResults.length) return failResponse(res, 'email or pass not match');
 
   const foundUserObj = findResults[0];
-  console.log('foundUserObj ===', foundUserObj);
-
   if (!verifyHash(password, foundUserObj)) {
     const error = [{ message: 'incorrect email or password' }];
     return failResponse(res, error);
   }
-
   const token = generateJwtToken(foundUserObj);
-
   return successResponse(res, token);
 }
 

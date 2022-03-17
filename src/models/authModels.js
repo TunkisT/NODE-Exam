@@ -14,7 +14,6 @@ async function addUserToDb(full_name, email, passHash) {
     await connection.close();
     return result;
   } catch (error) {
-    console.log('addUserToDb ===', error);
     return false;
   }
 }
@@ -28,7 +27,6 @@ async function getUserFromDb(email) {
     await connection.close();
     return userFoundResult;
   } catch (error) {
-    console.log('getUserFromDb ===', error);
     return false;
   }
 }

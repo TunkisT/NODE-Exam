@@ -16,6 +16,7 @@
         "linebreak-style": "off",
         "consistent-return": "off",
         "camelcase": "off",
-        "no-alert": "off"
+        "no-alert": "off",
+        "no-empty": "off"
     }
 }
