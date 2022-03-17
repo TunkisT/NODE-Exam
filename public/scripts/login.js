@@ -9,12 +9,10 @@ async function loginUser(loginData) {
   });
 
   const respInJs = await resp.json();
-  console.log('respInJs ===', respInJs);
 
   if (respInJs.success === false) {
     errorDiv.innerHTML = '';
     respInJs.error.forEach((err) => {
-      console.log(err.message);
       errorDiv.innerHTML += `<h5>${err.message}</h5>`;
     });
   }

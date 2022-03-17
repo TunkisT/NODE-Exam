@@ -6,15 +6,14 @@ const addBillForm = document.forms.bill;
 const query = window.location.search;
 const groupFromQuery = query.split('=')[1];
 
-async function makeTable() {
-  await fetch(`http://localhost:3000/bills/${groupFromQuery}`, {
+async function makeTable(id) {
+  await fetch(`http://localhost:3000/bills/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   })
     .then((res) => res.json())
     .then((cards) => {
-      console.log('cards ===', cards);
       if (cards.success === false) {
         cardsDiv.innerHTML = 'SESSION TIMEOUT';
         return;
@@ -49,7 +48,7 @@ function allowShowCards() {
     cardsDiv.innerHTML = 'PLEASE LOGIN';
     throw new Error('Please login');
   }
-  makeTable();
+  makeTable(groupFromQuery);
 }
 
 allowShowCards();
@@ -65,11 +64,11 @@ async function addBill(billData) {
   });
 
   const respInJs = await resp.json();
-  console.log('respInJs ===', respInJs);
   if (respInJs.success === false) {
     alert('Something went wrong');
     return;
   }
+  addBillForm.reset();
   alert('Bill added!');
   window.location.reload();
 }
@@ -81,6 +80,5 @@ addBillForm.addEventListener('submit', (event) => {
     amount: event.target.elements.amount.value,
     description: event.target.elements.description.value,
   };
-  console.log('billData ===', billData);
   addBill(billData);
 });

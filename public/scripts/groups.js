@@ -10,7 +10,6 @@ async function makeCards() {
   })
     .then((res) => res.json())
     .then((cards) => {
-      console.log('cards ===', cards);
       if (cards.success === false) {
         cardsDiv.innerHTML = 'SESSION TIMEOUT';
         return;
@@ -53,11 +52,11 @@ async function addGroup(groupData) {
   });
 
   const respInJs = await resp.json();
-  console.log('respInJs ===', respInJs);
   if (respInJs.success === false) {
     alert('Something went wrong');
     return;
   }
+  addGroupForm.reset();
   alert('Group added!');
   window.location.reload();
 }
@@ -67,6 +66,5 @@ addGroupForm.addEventListener('submit', (event) => {
   const groupData = {
     group_id: event.target.elements.group.value,
   };
-  console.log('groupData ===', groupData);
   addGroup(groupData);
 });

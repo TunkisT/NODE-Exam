@@ -9,12 +9,10 @@ async function registerUser(registrationData) {
   });
 
   const respInJs = await resp.json();
-  console.log('respInJs ===', respInJs);
 
   if (respInJs.success === false) {
     errorDiv.innerHTML = '';
     respInJs.error.forEach((err) => {
-      console.log(err.message);
       errorDiv.innerHTML += `<h5>${err.message}</h5>`;
     });
   }
@@ -29,7 +27,6 @@ registerForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const pass1 = event.target.elements.password.value;
   const pass2 = event.target.elements.password2.value;
-  console.log(pass1, pass2);
   if (pass1 !== pass2) {
     errorDiv.innerHTML = 'Password dont match';
     return;
@@ -40,7 +37,5 @@ registerForm.addEventListener('submit', (event) => {
     email: event.target.elements.email.value,
     password: pass2,
   };
-
-  console.log(registrationData);
   registerUser(registrationData);
 });
