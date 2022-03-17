@@ -37,7 +37,7 @@ async function makeTable() {
         tableRow.innerHTML = `
         <td>${card.bill_id}</td>
         <td>${card.description}</td>
-        <td>${card.amount}</td>
+        <td>$ ${card.amount}</td>
         `;
         tblBody.append(tableRow);
       });

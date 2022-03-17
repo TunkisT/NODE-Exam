@@ -28,7 +28,8 @@ async function loginController(req, res) {
   console.log('foundUserObj ===', foundUserObj);
 
   if (!verifyHash(password, foundUserObj)) {
-    return failResponse(res, 'pass dont match');
+    const error = [{ message: 'incorrect email or password' }];
+    return failResponse(res, error);
   }
 
   const token = generateJwtToken(foundUserObj);
