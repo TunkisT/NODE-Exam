@@ -11,7 +11,7 @@
 
 1. start live server
 
-## dependancies
+## dependencies
 
 - "bcryptjs"
 - "cors"
