@@ -1,0 +1,16 @@
+.card{
+    text-align: center;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2{
+    text-align: center;
+}
+.add-form{
+    width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+}

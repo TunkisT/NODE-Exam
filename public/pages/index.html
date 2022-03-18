@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="../scripts/login.js" defer></script>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+    <div class="main-div">
+        <img class="logo" src="../images/logo.jpg" >
+        
+        <h1>Login</h1>
+        <form id="login">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="email" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password" id="password" required>
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+            <button>Login</button>
+            <h4>Don't have account? <a href="register.html">Register</a></h4>
+        </form>
+        <div class="errors"></div>
+    </div>
+</body>
+</html>
